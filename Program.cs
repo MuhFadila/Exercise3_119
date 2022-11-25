@@ -81,7 +81,15 @@ namespace Exercise3_119
                     Console.WriteLine("3. Display the first record in the list");
                     Console.WriteLine("4. Exit");
                     Console.Write("\nEnter your choice (1-4):  ");
-                    
+                    char ch = Convert.ToChar(Console.ReadLine());
+                    switch (ch)
+                    {
+                        case '1':
+                            {
+                                obj.traverse();
+                            }
+                            break;
+                    }
                 }
                 catch (Exception e)
                 {

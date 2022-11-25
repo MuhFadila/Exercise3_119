@@ -153,6 +153,32 @@ namespace Exercise3_119
             else
                 Console.WriteLine("\nThe first record in the list is:\n\n " +
                     LAST.next.roll119 + "    " + LAST.next. MF);
+            Node currentNode;
+            for (currentNode = LAST; currentNode != null; currentNode = currentNode.next)
+                Console.Write(currentNode.roll119 + currentNode.MF + "\n");
+        }
+        public void SecondNode()
+        {
+            if (ListEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+            {
+                Console.WriteLine("\nRecord in the Descending order of" + "Roll number are:\n");
+                Node currentNode;
+                //membawa currentNode ke node paling belakang
+                currentNode = LAST;
+                while (currentNode.next != null)
+                {
+                    currentNode = currentNode.next;
+                }
+
+                //membaca data dari last node ke first node
+                while (currentNode != null)
+                {
+                    Console.Write(currentNode.roll119 + "  " + currentNode.MF + "\n");
+                    currentNode = currentNode.prev;
+                }
+            }
         }
         static void Main(string[] args)
         {

@@ -33,7 +33,14 @@ namespace Exercise3_119
             if (rollNo == LAST.rollNumber)/*if the Node is present at the end*/
                 return true;
             else
-                return (false);
+                return (false);/*return false if the node is not found*/
+        }
+        public bool ListEmpty()
+        {
+            if (LAST == null)
+                return true;
+            else
+                return false;
         }
     }
 }

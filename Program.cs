@@ -93,7 +93,32 @@ namespace Exercise3_119
             else
                 return (false);/*return false if the node is not found*/
         }
-        
+        public bool dellNode(int rollNo)
+        {
+            Node previous, current;
+            previous = current = null;
+            if (Search(rollNo, ref previous, ref current) == false)
+                return false;
+            // the begining of data
+            if (current.next == null)
+            {
+                previous.next = null;
+                return true;
+            }
+            //Node between two nodes in the list
+            if (current == LAST)
+            {
+                LAST = LAST.next;
+                if (LAST != null)
+                    LAST.prev = null;
+                return true;
+            }
+
+            /*if the to be deleted is in between the list then the following lines of is exetuted. */
+            previous.next = current.next;
+            current.next.prev = previous;
+            return true;
+        }
         public bool ListEmpty()
         {
             if (LAST == null)

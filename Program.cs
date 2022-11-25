@@ -13,6 +13,7 @@ namespace Exercise3_119
         public int roll119;
         public string MF;
         public Node next;
+        public Node prev;
     }
     class CircularList
     {
@@ -22,7 +23,62 @@ namespace Exercise3_119
         {
             LAST = null;
         }
-       
+        public void addNode()
+        {
+            int nim;
+            string nm;
+            Console.WriteLine("\nEnter the roll number of the student: ");
+            nim = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter the name of the student: ");
+            nm = Console.ReadLine();
+            Node newNode = new Node();
+            newNode.roll119 = nim;
+            newNode.MF = nm;
+
+            //check if the list empty
+            if (LAST == null || nim <= LAST.roll119)
+            {
+                if ((LAST != null) && (nim == LAST.roll119))
+                {
+                    Console.WriteLine("\nDuplicate number not allowed");
+                    return;
+                }
+                newNode.next = LAST;
+                if (LAST != null)
+                    LAST.prev = newNode;
+                newNode.next = null;
+                LAST = newNode;
+                return;
+            }
+            /*if the node is to be inserted at beetwen two Node*/
+            Node previous, current;
+            for (current = previous = LAST;
+                current != null && nim >= current.roll119;
+                previous = current, current = current.next)
+            {
+                if (nim == current.roll119)
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed");
+                    return;
+                }
+            }
+            /*On the execution of the above for loop, prev and
+            * current will point to those nodes
+            * between which the new node is to be inserted*/
+            newNode.next = current;
+            newNode.prev = previous;
+
+            //if the node is to be inserted at the end of the list
+            if (current == null)
+            {
+                newNode.next = null;
+                previous.next = newNode;
+                return;
+            }
+            current.prev = newNode;
+            previous.next = newNode;
+        }
+
         public bool Search(int rollNo, ref Node previous, ref Node current)
         /*search for the specified node*/
         {
@@ -37,6 +93,7 @@ namespace Exercise3_119
             else
                 return (false);/*return false if the node is not found*/
         }
+        
         public bool ListEmpty()
         {
             if (LAST == null)

@@ -21,5 +21,19 @@ namespace Exercise3_119
         {
             LAST = null;
         }
+        public bool Search(int rollNo, ref Node previous, ref Node current)
+        /*search for the specified node*/
+        {
+            for (previous = current = LAST.next; current != LAST; previous =
+                current, current = current.next)
+            {
+                if (rollNo == current.rollNumber)
+                    return (true);/*returns true if the node is found*/
+            }
+            if (rollNo == LAST.rollNumber)/*if the Node is present at the end*/
+                return true;
+            else
+                return (false);
+        }
     }
 }

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exercise3_119
 {
+    
     class Node
     {
         /*creates Nodes for the circular nexted list*/
-        public int rollNumber;
+        public int roll119;
         public string name;
         public Node next;
     }
@@ -21,16 +22,17 @@ namespace Exercise3_119
         {
             LAST = null;
         }
+       
         public bool Search(int rollNo, ref Node previous, ref Node current)
         /*search for the specified node*/
         {
             for (previous = current = LAST.next; current != LAST; previous =
                 current, current = current.next)
             {
-                if (rollNo == current.rollNumber)
+                if (rollNo == current.roll119)
                     return (true);/*returns true if the node is found*/
             }
-            if (rollNo == LAST.rollNumber)/*if the Node is present at the end*/
+            if (rollNo == LAST.roll119)/*if the Node is present at the end*/
                 return true;
             else
                 return (false);/*return false if the node is not found*/
@@ -42,6 +44,8 @@ namespace Exercise3_119
             else
                 return false;
         }
+
+        
         public void traverse()/*Traverses all the nodes of the list*/
         {
             if (ListEmpty())
@@ -53,11 +57,11 @@ namespace Exercise3_119
                 currentNode = LAST.next;
                 while (currentNode != LAST)
                 {
-                    Console.Write(currentNode.rollNumber + "        " +
+                    Console.Write(currentNode.roll119 + "        " +
                         currentNode.name + "\n");
                     currentNode = currentNode.next;
                 }
-                Console.Write(LAST.rollNumber + "      " + LAST.name + "\n");
+                Console.Write(LAST.roll119 + "      " + LAST.name + "\n");
             }
         }
         public void firstNode()
@@ -66,7 +70,7 @@ namespace Exercise3_119
                 Console.WriteLine("\nList is empty");
             else
                 Console.WriteLine("\nThe first record in the list is:\n\n " +
-                    LAST.next.rollNumber + "    " + LAST.next.name);
+                    LAST.next.roll119 + "    " + LAST.next.name);
         }
         static void Main(string[] args)
         {
@@ -106,7 +110,7 @@ namespace Exercise3_119
                                 {
                                     Console.WriteLine("\nRecord found");
                                     Console.WriteLine("\nRoll number: " +
-                                        curr.rollNumber);
+                                        curr.roll119);
                                     Console.WriteLine("\nName: " + curr.name);
                                 }
                             }

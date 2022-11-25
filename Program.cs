@@ -111,6 +111,11 @@ namespace Exercise3_119
                                 }
                             }
                             break;
+                        case '3':
+                            {
+                                obj.firstNode();
+                            }
+                            break;
                     }
                 }
                 catch (Exception e)

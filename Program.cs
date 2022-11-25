@@ -11,7 +11,7 @@ namespace Exercise3_119
     {
         /*creates Nodes for the circular nexted list*/
         public int roll119;
-        public string name;
+        public string MF;
         public Node next;
     }
     class CircularList
@@ -58,10 +58,10 @@ namespace Exercise3_119
                 while (currentNode != LAST)
                 {
                     Console.Write(currentNode.roll119 + "        " +
-                        currentNode.name + "\n");
+                        currentNode.MF + "\n");
                     currentNode = currentNode.next;
                 }
-                Console.Write(LAST.roll119 + "      " + LAST.name + "\n");
+                Console.Write(LAST.roll119 + "      " + LAST.MF + "\n");
             }
         }
         public void firstNode()
@@ -70,7 +70,7 @@ namespace Exercise3_119
                 Console.WriteLine("\nList is empty");
             else
                 Console.WriteLine("\nThe first record in the list is:\n\n " +
-                    LAST.next.roll119 + "    " + LAST.next.name);
+                    LAST.next.roll119 + "    " + LAST.next. MF);
         }
         static void Main(string[] args)
         {
@@ -111,7 +111,7 @@ namespace Exercise3_119
                                     Console.WriteLine("\nRecord found");
                                     Console.WriteLine("\nRoll number: " +
                                         curr.roll119);
-                                    Console.WriteLine("\nName: " + curr.name);
+                                    Console.WriteLine("\nName: " + curr.MF);
                                 }
                             }
                             break;
